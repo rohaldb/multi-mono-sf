@@ -1,0 +1,7 @@
+opencv-python
+colorama
+scikit-image
+pytz
+tqdm==4.40.0
+#uncomment this if not on colab
+#cupy
