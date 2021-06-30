@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # DATASETS_HOME
-DATA_HOME="(DAVID dataset path)/480p/rollerblade/"
+DATA_HOME="/content/davis/480p/rollerblade/"
 CHECKPOINT="checkpoints/checkpoint_kitti_selfsup.ckpt"
 
 # model
@@ -32,6 +32,5 @@ python ../main.py \
 --calculate_disparity_scale=False \
 --conv_padding_mode="zeros" \
 --correlation_cuda_enabled=False \
---save_vis=True
-
-# --save_out=True \
+--save_vis=True \
+--save_out=True

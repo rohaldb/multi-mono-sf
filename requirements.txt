@@ -3,5 +3,6 @@ colorama
 scikit-image
 pytz
 tqdm==4.40.0
+gdown
 #uncomment this if not on colab
 #cupy
