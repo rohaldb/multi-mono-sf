@@ -6,6 +6,7 @@ from . import kitti_comb_mnsf_multiframe
 from . import nuscene
 from . import davis
 from . import wsvd
+from . import kid_running
 
 # KITTI RAW multi-frame
 KITTI_Raw_Multi_KittiSplit_Train 		= kitti_raw_multiframe.KITTI_Raw_Multi_KittiSplit_Train
@@ -32,3 +33,5 @@ Davis									= davis.Davis
 WSVD_Train								= wsvd.WSVD_Train
 WSVD_Test								= wsvd.WSVD_Test
 
+# Custom
+KidRunning                              = kid_running.KidRunning
