@@ -233,17 +233,19 @@ def save_vis_output(output_tensor, output_path, basename, data_type, save_vis=Tr
             if save_vis:
                 io.imsave(file_names[ii] + '_{}.png'.format(data_type), flow_to_png_middlebury(output), check_contrast=False)
             if save_output:
-                write_flow_png(file_names[ii] + '_10.png', output) 
+                # write_flow_png(file_names[ii] + '_10.png', output)
+                np.save(file_names[ii], output) #shape [w,h,2]
         if data_type in ['disp', 'disp2']:
             if save_vis:
                 plt.imsave(file_names[ii] + '_{}.jpg'.format(data_type), disp_norm_for_vis(output[:, :, 0]), cmap='plasma')
             if save_output:
-                write_depth_png(file_names[ii] + '_10.png', output[:, :, 0])
+                # write_depth_png(file_names[ii] + '_10.png', output[:, :, 0])
+                np.save(file_names[ii], output[:, :, 0]) #shape [w,h]
         if data_type == 'sf':
             if save_vis:
                 io.imsave(file_names[ii] + '_{}.png'.format(data_type), compute_color_sceneflow(output), check_contrast=False)
-
-
+            if save_output:
+                np.save(file_names[ii], output)
 
 
 
