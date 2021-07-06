@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # DATASETS_HOME
-DATA_HOME="/content/nerf_data/kid-running/dense/images"
+DATA_HOME="/content/nerf_data/kid-running/dense/images_512x288"
 CHECKPOINT="checkpoints/checkpoint_kitti_selfsup.ckpt"
 
 # model
@@ -32,5 +32,5 @@ python ../main.py \
 --calculate_disparity_scale=False \
 --conv_padding_mode="zeros" \
 --correlation_cuda_enabled=False \
---save_vis=True \
+#--save_vis=True \
 --save_out=True
