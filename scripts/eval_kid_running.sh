@@ -12,7 +12,7 @@ Valid_Augmentation=Augmentation_Resize_Only_MultiFrame
 Valid_Loss_Function=Eval_SceneFlow_KITTI_Test_Multi
 
 # training configuration
-SAVE_PATH="eval/kid_running/"
+SAVE_PATH="/content/nerf_data/kid-running/dense"
 python ../main.py \
 --batch_size=1 \
 --batch_size_val=1 \
@@ -32,5 +32,5 @@ python ../main.py \
 --calculate_disparity_scale=False \
 --conv_padding_mode="zeros" \
 --correlation_cuda_enabled=False \
-#--save_vis=True \
---save_out=True
+--save_out=True \
+#--save_vis=True

@@ -219,7 +219,7 @@ class EvaluationEpoch:
             
     def save_outputs(self, example_dict, output_dict):
 
-        output_path = os.path.join(self._args.save, 'flow')
+        output_path = os.path.join(self._args.save, 'optical_flow')
         save_vis_output(output_dict["out_flow_pp"], output_path, example_dict["basename"], data_type='flow', save_vis=self._args.save_vis, save_output=self._args.save_out)
 
         output_path = os.path.join(self._args.save, 'disp_0')
@@ -228,7 +228,7 @@ class EvaluationEpoch:
         output_path = os.path.join(self._args.save, 'disp_1')
         save_vis_output(output_dict["out_disp_l_pp_next"], output_path, example_dict["basename"], data_type='disp2', save_vis=self._args.save_vis, save_output=self._args.save_out)
 
-        output_path = os.path.join(self._args.save, 'sf')
+        output_path = os.path.join(self._args.save, 'scene_flow')
         save_vis_output(output_dict["out_sceneflow_pp"], output_path, example_dict["basename"], data_type='sf', save_vis=self._args.save_vis, save_output=self._args.save_out)
 
 
