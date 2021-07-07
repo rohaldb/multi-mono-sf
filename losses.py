@@ -558,6 +558,7 @@ class Eval_SceneFlow_KITTI_Test_Multi(nn.Module):
         out_disp_l1 = interpolate2d_as(output_dict["disp_1_pp"][0][-1:, ...], input_img, mode="bilinear") * width
         out_depth_l1 = disp2depth_kitti(out_disp_l1, intrinsics[:, 0, 0], depth_clamp=True)
         output_dict["out_disp_l_pp"] = out_disp_l1
+        output_dict["out_depth_l_pp"] = out_depth_l1
 
         # Optical Flow
         out_sceneflow = interpolate2d_as(output_dict['sf_f_pp'][0][-1:, ...], input_img, mode="bilinear")

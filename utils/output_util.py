@@ -209,7 +209,7 @@ def disp_norm_for_vis(disp):
 
 def save_vis_output(output_tensor, output_path, basename, data_type, save_vis=True, save_output=True):
     
-    assert data_type in ['flow', 'disp', 'disp2', 'sf']
+    assert data_type in ['flow', 'disp', 'disp2', 'sf', 'depth']
 
     output_np = output_tensor.data.cpu().numpy()
     b_size = output_tensor.size(0)
@@ -235,7 +235,7 @@ def save_vis_output(output_tensor, output_path, basename, data_type, save_vis=Tr
             if save_output:
                 # write_flow_png(file_names[ii] + '_10.png', output)
                 np.save(file_names[ii], output) #shape [w,h,2]
-        if data_type in ['disp', 'disp2']:
+        if data_type in ['disp', 'disp2', 'depth']:
             if save_vis:
                 plt.imsave(file_names[ii] + '_{}.jpg'.format(data_type), disp_norm_for_vis(output[:, :, 0]), cmap='plasma')
             if save_output:

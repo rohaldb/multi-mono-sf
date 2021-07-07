@@ -225,6 +225,9 @@ class EvaluationEpoch:
         output_path = os.path.join(self._args.save, 'disp_0')
         save_vis_output(output_dict["out_disp_l_pp"], output_path, example_dict["basename"], data_type='disp', save_vis=self._args.save_vis, save_output=self._args.save_out)
 
+        output_path = os.path.join(self._args.save, 'depth_0')
+        save_vis_output(output_dict["out_depth_l_pp"], output_path, example_dict["basename"], data_type='depth',save_vis=self._args.save_vis, save_output=self._args.save_out)
+
         output_path = os.path.join(self._args.save, 'disp_1')
         save_vis_output(output_dict["out_disp_l_pp_next"], output_path, example_dict["basename"], data_type='disp2', save_vis=self._args.save_vis, save_output=self._args.save_out)
 
