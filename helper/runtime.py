@@ -232,7 +232,11 @@ class EvaluationEpoch:
         save_vis_output(output_dict["out_disp_l_pp_next"], output_path, example_dict["basename"], data_type='disp2', save_vis=self._args.save_vis, save_output=self._args.save_out)
 
         output_path = os.path.join(self._args.save, 'sf')
-        save_vis_output(output_dict["out_sceneflow_pp"], output_path, example_dict["basename"], data_type='sf', save_vis=self._args.save_vis, save_output=self._args.save_out)
+        save_vis_output(output_dict["out_sceneflow_fw_pp"], output_path, example_dict["basename"], data_type='sf', save_vis=self._args.save_vis, save_output=self._args.save_out)
+
+        output_path = os.path.join(self._args.save, 'sf_bw')
+        save_vis_output(output_dict["out_sceneflow_bw_pp"], output_path, example_dict["basename"], data_type='sf',
+                        save_vis=self._args.save_vis, save_output=self._args.save_out)
 
 
     def _step(self, example_dict, model_and_loss):

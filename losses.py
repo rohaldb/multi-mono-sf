@@ -560,14 +560,16 @@ class Eval_SceneFlow_KITTI_Test_Multi(nn.Module):
         output_dict["out_disp_l_pp"] = out_disp_l1
         output_dict["out_depth_l_pp"] = out_depth_l1
 
-        # Optical Flow
-        out_sceneflow = interpolate2d_as(output_dict['sf_f_pp'][0][-1:, ...], input_img, mode="bilinear")
-        out_flow = projectSceneFlow2Flow(intrinsics, out_sceneflow, output_dict["out_disp_l_pp"])
-        output_dict["out_sceneflow_pp"] = out_sceneflow
+        # Optical & Scene Flow
+        out_sceneflow_fw = interpolate2d_as(output_dict['sf_f_pp'][0][-1:, ...], input_img, mode="bilinear")
+        out_sceneflow_bw = interpolate2d_as(output_dict['sf_b_pp'][0][-1:, ...], input_img, mode="bilinear")
+        out_flow = projectSceneFlow2Flow(intrinsics, out_sceneflow_fw, output_dict["out_disp_l_pp"])
+        output_dict["out_sceneflow_fw_pp"] = out_sceneflow_fw
+        output_dict["out_sceneflow_bw_pp"] = out_sceneflow_bw
         output_dict["out_flow_pp"] = out_flow
 
         # Disp 2
-        out_depth_l1_next = out_depth_l1 + out_sceneflow[:, 2:3, :, :]
+        out_depth_l1_next = out_depth_l1 + out_sceneflow_fw[:, 2:3, :, :]
         out_disp_l1_next = depth2disp_kitti(out_depth_l1_next, intrinsics[:, 0, 0], depth_clamp=False)
         output_dict["out_disp_l_pp_next"] = out_disp_l1_next
 
